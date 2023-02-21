@@ -5,11 +5,4 @@
 	];
 
 	services.fstrim.enable = true;
-
-	programs = {
-		java = {
-			enable = true;
-			package = pkgs.jetbrains.jdk;
-		};
-	};
 }

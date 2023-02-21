@@ -11,13 +11,12 @@
     };
 	};
 
-	environment.systemPackages = with pkgs; [
-		fishPlugins.colored-man-pages
-		fishPlugins.sponge
-		fishPlugins.done
-		fishPlugins.fzf-fish
-		fishPlugins.grc
-	  fzf
-	  grc
+	environment.systemPackages = with pkgs.fishPlugins; [
+	  pkgs.fzf
+	  pkgs.grc
+		colored-man-pages
+		fzf-fish
+		sponge
+		grc
 	];
 }

@@ -1,9 +1,5 @@
 { pkgs, ... }: {
-  services.xserver.videoDrivers = [ "intel" ];
-
-  environment.variables.VDPAU_DRIVER = "va_gl";
-
-  boot.initrd.kernelModules = [ "i915" ];
+	services.xserver.videoDrivers = [ "modesetting" ];
 
   hardware.opengl = {
     enable = true;

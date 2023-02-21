@@ -1,30 +1,28 @@
 { config, lib, pkgs, inputs, ... }: {
-	imports = [
-		../modules/fish.nix
-		../modules/intel.nix
-	];
+	imports = (import ../modules/desktop);
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     wget
     htop
     ncdu
-    xarchiver
-    xfce.xfce4-whiskermenu-plugin
-    xfce.thunar-archive-plugin
   ];
 
+	security.rtkit.enable = true;
+
   services = {
-#    journald.extraConfig = "Storage=none";
+    journald.extraConfig = "Storage=volatile";
     openssh = {
       enable = true;
       allowSFTP = true;
     };
-    xserver = {
+    pipewire = {
       enable = true;
-      layout = "br";
-      desktopManager.gnome.enable = true;
-#      displayManager.gdm.enable = true;
+      pulse.enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
     };
   };
 
@@ -45,17 +43,9 @@
   };
 
   time.timeZone = "America/Sao_Paulo";
-  i18n.defaultLocale = "pt_BR.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "br-abnt2";
-  };
-
-  sound.enable = true;
-  networking.networkmanager.enable = true;
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-    pulseaudio.enable = true;
   };
 
   nix = {
