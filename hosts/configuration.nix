@@ -1,14 +1,15 @@
 { config, lib, pkgs, inputs, ... }: {
-	imports = (import ../modules/desktop);
+	imports = [
+		(import ../modules/desktop/gnome)
+		../modules/intel.nix
+		../modules/fish.nix
+	];
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    wget
     htop
     ncdu
   ];
-
-	security.rtkit.enable = true;
 
   services = {
     journald.extraConfig = "Storage=volatile";
@@ -19,12 +20,22 @@
     pipewire = {
       enable = true;
       pulse.enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
+      alsa.enable = true;
     };
   };
+
+	security = {
+		rtkit.enable = true;
+		sudo.enable = false;
+		doas = {
+			enable = true;
+			extraRules = [{
+        users = [ "dallas" ];
+        keepEnv = true;
+        persist = true;
+      }];
+		};
+	};
 
   users = {
 		defaultUserShell = pkgs.fish;
@@ -35,7 +46,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
 	  loader = {
 	    efi.canTouchEfiVariables = true;
 	    systemd-boot.enable = true;

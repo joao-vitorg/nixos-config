@@ -1,5 +1,7 @@
 { pkgs, ... }: {
-	services.xserver.videoDrivers = [ "modesetting" ];
+	boot.initrd.kernelModules = [ "i915" ];
+
+  environment.variables.LIBVA_DRIVER_NAME = "i965";
 
   hardware.opengl = {
     enable = true;

@@ -24,11 +24,11 @@
 		};
 	};
 
-#	dconf.settings = {
-#    "org/gnome/shell" = {
-#			disable-user-extensions = false;
-#      enabled-extensions = [
-#        "trayIconsReloaded@selfmade.pl"
+	dconf.settings = {
+    "org/gnome/shell" = {
+			disable-user-extensions = false;
+      enabled-extensions = [
+        "trayIconsReloaded@selfmade.pl"
 #        "drive-menu@gnome-shell-extensions.gcampax.github.com"
 #        "just-perfection-desktop@just-perfection"
 #        "clipboard-indicator@tudmotu.com"
@@ -36,13 +36,12 @@
 #        "battery-indicator@jgotti.org"
 #        "gsconnect@andyholmes.github.io"
 #        "forge@jmmaranan.com"
-#      ];
-#    };
-#	};
-#
-#  home.packages = with pkgs.gnomeExtensions; [
-#    appindicator
-#    tray-icons-reloaded
+      ];
+    };
+	};
+
+  home.packages = with pkgs.gnomeExtensions; [
+    tray-icons-reloaded
 #    battery-indicator-upower
 #    just-perfection
 #    clipboard-indicator
@@ -50,5 +49,5 @@
 #    pop-shell
 #    removable-drive-menu
 #    forge # tiling windows manager
-#  ];
+  ];
 }

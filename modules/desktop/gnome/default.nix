@@ -1,6 +1,7 @@
 { pkgs, ... }: {
 	services = {
 		avahi.enable = false;
+		gnome.gnome-browser-connector.enable = false;
 		udev.packages = with pkgs.gnome; [
 			gnome-settings-daemon
 		];
@@ -27,19 +28,18 @@
 	    orca
 	  ]) ++ (with pkgs.gnome; [
 	    cheese
-	    gnome-music
-	    gedit
 	    epiphany
-	    geary
-	    yelp
-      adwaita-icon-theme
-      gnome-backgrounds
-      gnome-bluetooth
 	    gnome-characters
+	    gnome-clocks
 	    gnome-contacts
+	    gnome-font-viewer
 	    gnome-maps
 	    gnome-music
 	    gnome-weather
+	    yelp
+      gnome-backgrounds
+      gnome-bluetooth
+	    geary
 	  ]);
   };
 }
