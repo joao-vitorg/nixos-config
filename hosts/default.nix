@@ -13,13 +13,15 @@
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
-					home-manager.users.dallas = {
-						imports = [(import ./home.nix) (import (./. + "/${host}/home.nix"))];
-					};
+					home-manager.users.dallas.imports = [
+						(import ./home.nix)
+						(import (./. + "/${host}/home.nix"))
+					];
 				}
 			];
 		};
 	in {
 		laptop = mkNix "laptop";
-#		desktop = mkNix "desktop";
+		desktop = mkNix "desktop";
+		pendrive = mkNix "pendrive";
 }
