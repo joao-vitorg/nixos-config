@@ -27,15 +27,18 @@
 	    gnome-tour
 	    orca
 	  ]) ++ (with pkgs.gnome; [
+	    baobab
 	    cheese
 	    epiphany
 	    gnome-characters
 	    gnome-clocks
 	    gnome-contacts
 	    gnome-font-viewer
+	    gnome-logs
 	    gnome-maps
 	    gnome-music
 	    gnome-weather
+	    simple-scan
 	    yelp
       gnome-backgrounds
       gnome-bluetooth

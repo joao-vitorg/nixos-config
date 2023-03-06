@@ -4,7 +4,7 @@
 		setSocketVariable = true;
 	};
 
-	environment.systemPackages = [
-		pkgs.docker-compose
+	environment.systemPackages = with pkgs; [
+		docker-compose
 	];
 }

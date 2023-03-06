@@ -15,15 +15,6 @@
     };
   };
 
-	qt = {
-		enable = true;
-		platformTheme = "gtk";
-		style = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
-		};
-	};
-
 	dconf.settings = {
     "org/gnome/shell" = {
 			disable-user-extensions = false;

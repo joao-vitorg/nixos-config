@@ -1,12 +1,12 @@
 { config, lib, pkgs, inputs, ... }: {
 	imports = [
-		(import ../modules/desktop/gnome)
-		../modules/intel.nix
-		../modules/fish.nix
+		(import ../modules/desktop)
+		../modules/programs/fish.nix
 	];
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    firefox
     htop
     ncdu
   ];
@@ -16,6 +16,7 @@
     openssh = {
       enable = true;
       allowSFTP = true;
+      settings.PermitRootLogin = "yes";
     };
     pipewire = {
       enable = true;
@@ -41,9 +42,11 @@
 		defaultUserShell = pkgs.fish;
     users.dallas = {
 	    isNormalUser = true;
-	    extraGroups = [ "wheel" "networkmanager" ];
+	    extraGroups = [ "wheel" "networkmanager" "video" "audio" "lp" "scanner" ];
     };
   };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
