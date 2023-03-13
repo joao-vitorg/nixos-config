@@ -1,12 +1,12 @@
 { pkgs, ... }: {
 	hardware.sane = {
 		enable = true;
-		extraBackends = [ pkgs.hplipWithPlugin ];
+		extraBackends = [ pkgs.hplip ];
 	};
 
 	services.printing = {
 		enable = true;
-    drivers = [ pkgs.hplipWithPlugin ];
+    drivers = [ pkgs.hplip ];
 	};
 
   environment.systemPackages = with pkgs.gnome; [

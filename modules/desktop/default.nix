@@ -1,10 +1,17 @@
 { pkgs, ... }: {
 	services = {
 		avahi.enable = false;
-		gnome.gnome-browser-connector.enable = false;
+		hardware.bolt.enable = false;
 		udev.packages = with pkgs.gnome; [
 			gnome-settings-daemon
 		];
+		gnome = {
+			gnome-browser-connector.enable = false;
+			gnome-remote-desktop.enable = false;
+			gnome-initial-setup.enable = false;
+			gnome-user-share.enable = false;
+			rygel.enable = false;
+		};
 		xserver = {
       enable = true;
       layout = "br";
@@ -22,27 +29,29 @@
       dconf-editor
       gnome-tweaks
     ];
-		gnome.excludePackages = (with pkgs; [
-	    gnome-photos
-	    gnome-tour
-	    orca
-	  ]) ++ (with pkgs.gnome; [
-	    baobab
-	    cheese
-	    epiphany
-	    gnome-characters
-	    gnome-clocks
-	    gnome-contacts
+		gnome.excludePackages = (with pkgs.gnome; [
+	    pkgs.gnome-photos
+	    pkgs.gnome-tour
+	    pkgs.orca
+      gnome-disk-utility
+      gnome-backgrounds
 	    gnome-font-viewer
+      gnome-calculator
+	    gnome-characters
+      gnome-bluetooth
+	    gnome-contacts
+	    gnome-weather
+	    gnome-clocks
+	    gnome-music
 	    gnome-logs
 	    gnome-maps
-	    gnome-music
-	    gnome-weather
 	    simple-scan
-	    yelp
-      gnome-backgrounds
-      gnome-bluetooth
+	    epiphany
+	    baobab
+	    cheese
 	    geary
+	    totem
+	    yelp
 	  ]);
   };
 }

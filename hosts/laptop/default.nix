@@ -1,17 +1,12 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, nixos-hardware, ... }: {
 	imports = [
-		(import ./hardware-configuration.nix)
-		(import ../../modules/services/docker.nix)
-		(import ../../modules/services/printer.nix)
+		nixos-hardware.nixosModules.common-pc-ssd
+		./hardware-configuration.nix
+		../../modules/services/docker.nix
+		../../modules/services/printer.nix
 	];
 
-	services.fstrim.enable = true;
-
 	environment.systemPackages = with pkgs; [
-    jetbrains.idea-ultimate
-#    jetbrains.jdk
     keepassxc
-    tdesktop
-    git
   ];
 }

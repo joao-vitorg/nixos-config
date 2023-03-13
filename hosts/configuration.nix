@@ -1,12 +1,14 @@
 { config, lib, pkgs, inputs, ... }: {
 	imports = [
-		(import ../modules/desktop)
+		../modules/desktop
 		../modules/programs/fish.nix
 	];
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     firefox
+    tdesktop
+    qalculate-gtk
     htop
     ncdu
   ];
@@ -67,6 +69,12 @@
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = "experimental-features = nix-command flakes";
   };
+
+	documentation = {
+		nixos.enable = false;
+		doc.enable = false;
+		info.enable = false;
+	};
 
   system.stateVersion = "22.11";
 }
