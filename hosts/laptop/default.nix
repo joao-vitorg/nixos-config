@@ -2,8 +2,8 @@
 	imports = [
 		nixos-hardware.nixosModules.common-pc-ssd
 		./hardware-configuration.nix
-		../../modules/services/docker.nix
-		../../modules/services/printer.nix
+    ../../modules/services/printer.nix
+    ../../modules/development
 	];
 
 	environment.systemPackages = with pkgs; [

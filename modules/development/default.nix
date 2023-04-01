@@ -1,5 +1,7 @@
 { pkgs, ... }: {
   imports = [
+    ./docker.nix
+    ./kvm.nix
     ./node.nix
   ];
 

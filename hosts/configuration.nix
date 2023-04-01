@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }: {
 	imports = [
 		../modules/desktop
+		../modules/services
 		../modules/programs/fish.nix
 	];
 
@@ -12,20 +13,6 @@
     htop
     ncdu
   ];
-
-  services = {
-    journald.extraConfig = "Storage=volatile";
-    openssh = {
-      enable = true;
-      allowSFTP = true;
-      settings.PermitRootLogin = "yes";
-    };
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
-    };
-  };
 
 	security = {
 		rtkit.enable = true;
@@ -44,7 +31,7 @@
 		defaultUserShell = pkgs.fish;
     users.dallas = {
 	    isNormalUser = true;
-	    extraGroups = [ "wheel" "networkmanager" "video" "audio" "lp" "scanner" ];
+	    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     };
   };
 
