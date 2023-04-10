@@ -2,10 +2,10 @@
 	imports = [
 		../modules/desktop
 		../modules/services
-		../modules/programs/fish.nix
 	];
 
   nixpkgs.config.allowUnfree = true;
+  programs.fish.enable = true;
   environment.systemPackages = with pkgs; [
     firefox
     tdesktop

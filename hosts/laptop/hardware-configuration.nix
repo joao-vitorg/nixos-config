@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usbhid" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
@@ -24,14 +24,15 @@
       fsType = "btrfs";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F301-3E07";
-      fsType = "vfat";
-    };
-
   fileSystems."/mnt/hdd" =
     { device = "/dev/disk/by-uuid/79989292-1c23-47d7-8229-72a73d548a9d";
       fsType = "btrfs";
+    };
+
+  fileSystems."/media" =
+    { device = "/dev/disk/by-uuid/79989292-1c23-47d7-8229-72a73d548a9d";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
     };
 
   fileSystems."/home" =
@@ -40,10 +41,9 @@
       options = [ "subvol=@home" ];
     };
 
-  fileSystems."/media" =
-    { device = "/dev/disk/by-uuid/79989292-1c23-47d7-8229-72a73d548a9d";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/1BF0-CA39";
+      fsType = "vfat";
     };
 
   swapDevices = [ ];

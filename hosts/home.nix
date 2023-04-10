@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
 	imports = [
 		../modules/desktop/home.nix
-		../modules/programs/nvim.nix
+		../modules/programs
 	];
 
 	programs.home-manager.enable = true;

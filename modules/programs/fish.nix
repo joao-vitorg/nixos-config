@@ -1,22 +1,28 @@
 { pkgs, ... }: {
 	programs.fish = {
     enable = true;
-    shellAliases = {
+
+		interactiveShellInit = "set fish_greeting";
+
+    shellAbbrs = {
       df = "df -Th";
-      nix-check = "doas nix flake check --recreate-lock-file";
+      nix-check = "nix flake check --recreate-lock-file";
       nix-switch = "doas nixos-rebuild switch --flake .#laptop";
       nix-boot = "doas nixos-rebuild boot --flake .#laptop";
       nix-hardware = "doas nixos-generate-config ;; cp /etc/nixos/hardware-configuration.nix ./hosts/laptop";
       nix-gc = "doas nix-collect-garbage -d ;; doas nix-store --optimize";
     };
+
+		plugins = with pkgs.fishPlugins; [
+      { name = "colored-man-pages"; src = colored-man-pages.src; }
+      { name = "fzf-fish"; src = fzf-fish.src; }
+      { name = "sponge"; src = sponge.src; }
+      { name = "grc"; src = grc.src; }
+		];
 	};
 
-	environment.systemPackages = with pkgs.fishPlugins; [
-	  pkgs.fzf
-    pkgs.grc
-    colored-man-pages
-		fzf-fish
-		sponge
+	home.packages = with pkgs; [
+    fzf
     grc
-	];
+  ];
 }

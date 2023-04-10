@@ -1,14 +1,14 @@
 { pkgs, ... }: {
   imports = [
-    ./docker.nix
     ./kvm.nix
     ./node.nix
+    ./mariadb.nix
   ];
 
   environment.systemPackages = with pkgs; [
-    git
     jetbrains.idea-ultimate
     jetbrains.jdk
     graphviz
+    git
   ];
 }

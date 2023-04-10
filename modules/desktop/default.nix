@@ -16,6 +16,7 @@
       enable = true;
       layout = "br";
 			desktopManager.gnome.enable = true;
+			displayManager.gdm.enable = true;
 		};
 	};
 
