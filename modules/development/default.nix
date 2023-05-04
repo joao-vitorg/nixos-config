@@ -1,14 +1,15 @@
 { pkgs, ... }: {
   imports = [
-    ./kvm.nix
     ./node.nix
     ./mariadb.nix
   ];
 
+  programs.java.enable = true;
+
   environment.systemPackages = with pkgs; [
     jetbrains.idea-ultimate
-    jetbrains.jdk
     graphviz
+    python3
     git
   ];
 }

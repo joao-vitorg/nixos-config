@@ -2,11 +2,6 @@
   services = {
     journald.extraConfig = "Storage=volatile";
 
-    ananicy = {
-      enable = true;
-			package = pkgs.ananicy-cpp;
-    };
-
     openssh = {
       enable = true;
       allowSFTP = true;

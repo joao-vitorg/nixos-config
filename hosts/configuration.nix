@@ -12,6 +12,7 @@
     qalculate-gtk
     htop
     ncdu
+    wget
   ];
 
 	security = {
@@ -35,10 +36,14 @@
     };
   };
 
-  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd = {
+    oomd.enable = false;
+    services.NetworkManager-wait-online.enable = false;
+  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    tmp.useTmpfs = true;
 	  loader = {
 	    efi.canTouchEfiVariables = true;
 	    systemd-boot.enable = true;
@@ -48,7 +53,7 @@
   time.timeZone = "America/Sao_Paulo";
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "br-abnt2";
+#    keyMap = "br-abnt2";
   };
 
   nix = {
