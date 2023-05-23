@@ -1,6 +1,6 @@
 { pkgs, ... } : {
-  environment.systemPackages = with pkgs.nodePackages; [
-    pkgs.nodejs-slim
-    pnpm
-  ];
+	environment.systemPackages = with pkgs.nodePackages; [
+		pkgs.nodejs-slim
+		pnpm
+	];
 }

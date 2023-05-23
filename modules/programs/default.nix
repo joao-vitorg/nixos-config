@@ -1,6 +1,6 @@
 { pkgs, ... }: {
-  imports = [
-	./fish.nix
-	./nvim.nix
-  ];
+	imports = [
+		./fish.nix
+		./nvim.nix
+	];
 }

@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  users.users.dallas.extraGroups = [ "lp" "scanner" ];
+	users.users.dallas.extraGroups = [ "lp" "scanner" ];
 
 	hardware.sane = {
 		enable = true;
@@ -8,10 +8,10 @@
 
 	services.printing = {
 		enable = true;
-    drivers = [ pkgs.hplip ];
+		drivers = [ pkgs.hplip ];
 	};
 
-  environment.systemPackages = with pkgs.gnome; [
-    simple-scan
-  ];
+	environment.systemPackages = with pkgs.gnome; [
+		simple-scan
+	];
 }

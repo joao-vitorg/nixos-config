@@ -13,7 +13,7 @@
 			rygel.enable = false;
 		};
 		xserver = {
-      enable = true;
+			enable = true;
 #      layout = "br";
 			desktopManager.gnome.enable = true;
 			displayManager.gdm.enable = true;
@@ -26,33 +26,33 @@
 	};
 
 	environment = {
-    systemPackages = with pkgs.gnome; [
-      dconf-editor
-      gnome-tweaks
-    ];
+		systemPackages = with pkgs.gnome; [
+			dconf-editor
+			gnome-tweaks
+		];
 		gnome.excludePackages = (with pkgs.gnome; [
-	    pkgs.gnome-photos
-	    pkgs.gnome-tour
-	    pkgs.orca
-      gnome-disk-utility
-      gnome-backgrounds
-	    gnome-font-viewer
-      gnome-calculator
-	    gnome-characters
-      gnome-bluetooth
-	    gnome-contacts
-	    gnome-weather
-	    gnome-clocks
-	    gnome-music
-	    gnome-logs
-	    gnome-maps
-	    simple-scan
-	    epiphany
-	    baobab
-	    cheese
-	    geary
-	    totem
-	    yelp
-	  ]);
-  };
+			pkgs.gnome-photos
+			pkgs.gnome-tour
+			pkgs.orca
+			gnome-disk-utility
+			gnome-backgrounds
+			gnome-font-viewer
+			gnome-calculator
+			gnome-characters
+			gnome-bluetooth
+			gnome-contacts
+			gnome-weather
+			gnome-clocks
+			gnome-music
+			gnome-logs
+			gnome-maps
+			simple-scan
+			epiphany
+			baobab
+			cheese
+			geary
+			totem
+			yelp
+		]);
+	};
 }
