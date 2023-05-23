@@ -1,17 +1,21 @@
 { pkgs, ... }: {
-  services = {
-    journald.extraConfig = "Storage=volatile";
+	imports = [
+		./ananicy.nix
+	];
 
-    openssh = {
-      enable = true;
-      allowSFTP = true;
-      settings.PermitRootLogin = "yes";
-    };
+	services = {
+		journald.extraConfig = "Storage=volatile";
 
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
-    };
-  };
+		openssh = {
+			enable = true;
+			allowSFTP = true;
+			settings.PermitRootLogin = "yes";
+		};
+
+		pipewire = {
+			enable = true;
+			pulse.enable = true;
+			alsa.enable = true;
+		};
+	};
 }
