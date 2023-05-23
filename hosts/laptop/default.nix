@@ -1,12 +1,13 @@
-{ pkgs, lib, nixos-hardware, ... }: {
+{ pkgs, lib, ... }: {
 	imports = [
-		nixos-hardware.nixosModules.common-pc-ssd
 		./hardware-configuration.nix
-    ../../modules/services/printer.nix
-    ../../modules/development
+		../../modules/services/printer.nix
+		../../modules/development
 	];
 
+	services.fstrim.enable = true;
+
 	environment.systemPackages = with pkgs; [
-    keepassxc
-  ];
+		keepassxc
+	];
 }

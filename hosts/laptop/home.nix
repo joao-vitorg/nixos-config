@@ -3,7 +3,7 @@
 		git = {
 			enable = true;
 			userName = "joao-vitorg";
-			userEmail = "jovitor737@gmail.com";
+			userEmail = "101678877+joao-vitorg@users.noreply.github.com";
 		};
 	};
 }

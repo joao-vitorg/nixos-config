@@ -1,16 +1,13 @@
-{ lib, inputs, nixpkgs, home-manager, nixos-hardware, ... }:
+{ lib, inputs, nixpkgs, home-manager, ... }:
 	let
 		mkNix = host: nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
-
 			specialArgs = {
-				inherit inputs nixos-hardware;
+				inherit inputs;
 			};
-
 			modules = [
 				(./. + "/${host}")
 				./configuration.nix
-				../modules/hardware
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
