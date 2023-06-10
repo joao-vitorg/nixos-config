@@ -2,18 +2,11 @@
 	imports = [
 		../modules/desktop
 		../modules/services
+		../modules/programs/base.nix
 	];
 
 	nixpkgs.config.allowUnfree = true;
 	programs.fish.enable = true;
-	environment.systemPackages = with pkgs; [
-		firefox
-		tdesktop
-		qalculate-gtk
-		htop
-		ncdu
-		wget
-	];
 
 	security = {
 		rtkit.enable = true;
