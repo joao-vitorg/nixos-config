@@ -14,7 +14,7 @@
 		};
 		xserver = {
 			enable = true;
-#      layout = "br";
+      layout = "br";
 			desktopManager.gnome.enable = true;
 			displayManager.gdm.enable = true;
 		};
