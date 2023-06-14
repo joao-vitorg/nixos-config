@@ -2,14 +2,15 @@
 	imports = [
 		./node.nix
 		./docker.nix
+		./robot-framework.nix
 	];
 
 	programs.java.enable = true;
 
 	environment.systemPackages = with pkgs; [
 		jetbrains.idea-ultimate
-		python3Minimal
 		graphviz
+		python3
 		git
 	];
 }
