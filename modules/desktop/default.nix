@@ -16,11 +16,18 @@
 			enable = true;
       layout = "br";
 			desktopManager.gnome.enable = true;
-			displayManager.gdm.enable = true;
+			displayManager = {
+				gdm.enable = true;
+				autoLogin = {
+					enable = true;
+					user = "dallas";
+				};
+			};
 		};
 	};
 
 	hardware = {
+		enableRedistributableFirmware = true;
 		pulseaudio.enable = false;
 		bluetooth.enable = false;
 	};
