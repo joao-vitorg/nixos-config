@@ -34,25 +34,13 @@
 #			];
 			enabled-extensions = [
 				"appindicatorsupport@rgcjonas.gmail.com"
-#        "drive-menu@gnome-shell-extensions.gcampax.github.com"
-#        "just-perfection-desktop@just-perfection"
-#        "clipboard-indicator@tudmotu.com"
-#        "horizontal-workspace-indicator@tty2.io"
-#        "battery-indicator@jgotti.org"
-#        "gsconnect@andyholmes.github.io"
-#        "forge@jmmaranan.com"
+				"clipboard-indicator@tudmotu.com"
 			];
 		};
 	};
 
 	home.packages = with pkgs.gnomeExtensions; [
+	  clipboard-indicator
 		appindicator
-#    battery-indicator-upower
-#    just-perfection
-#    clipboard-indicator
-#    workspace-indicator-2
-#    pop-shell
-#    removable-drive-menu
-#    forge # tiling windows manager
 	];
 }

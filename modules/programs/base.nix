@@ -8,8 +8,8 @@
     htop
     wget
     ncdu
+    openssl
 
-    bind
     binutils
     coreutils
     curl

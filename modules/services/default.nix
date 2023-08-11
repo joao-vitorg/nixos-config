@@ -1,8 +1,4 @@
 { pkgs, ... }: {
-	imports = [
-		./ananicy.nix
-	];
-
 	services = {
 		journald.extraConfig = "Storage=volatile";
 
