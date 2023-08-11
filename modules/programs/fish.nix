@@ -6,11 +6,17 @@
 
 		shellAbbrs = {
 			df = "df -Th";
-			nix-check = "nix flake check --recreate-lock-file";
-			nix-switch = "doas nixos-rebuild switch --flake .#laptop";
+			lsblk = "lsblk -f";
+		};
+
+		functions = {
+			nix-copilot = "ln -fs /run/current-system/sw/bin/copilot-agent ~/.local/share/JetBrains/IntelliJIdea2023.2/github-copilot-intellij/copilot-agent/bin/copilot-agent-linux";
+			nix-hardware = "doas nixos-generate-config \n cp /etc/nixos/hardware-configuration.nix /media/flakes/hosts/laptop";
+			nix-gc = "doas nix-env --delete-generations old --profile /nix/var/nix/profiles/system \n doas nix-collect-garbage -d \n doas nix-store --optimize";
+			nix-check = "nix flake check --recreate-lock-file --allow-dirty \n doas nix-channel --update";
+			nix-test = "doas nixos-rebuild test --flake .#laptop";
 			nix-boot = "doas nixos-rebuild boot --flake .#laptop";
-			nix-hardware = "doas nixos-generate-config ;; cp /etc/nixos/hardware-configuration.nix ./hosts/laptop";
-			nix-gc = "doas nix-env --delete-generations old --profile /nix/var/nix/profiles/system ;; doas nix-collect-garbage -d";
+			nix-update = "nix-check \n nix-gc \n nix-boot";
 		};
 
 		plugins = with pkgs.fishPlugins; [
