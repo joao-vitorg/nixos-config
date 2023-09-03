@@ -3,20 +3,15 @@
 		firefox
     tdesktop
     qalculate-gtk
-
     tealdeer
+    openssl
+    gcc
     htop
     wget
     ncdu
-    openssl
-
     binutils
     coreutils
     curl
-    dos2unix
-    file
-    inetutils
-    iproute2
     unrar
     unzip
     zip
