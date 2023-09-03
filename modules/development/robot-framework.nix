@@ -3,5 +3,6 @@
     chromedriver
     chromium
 		python3
+		inkscape
 	];
 }
