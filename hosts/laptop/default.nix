@@ -8,7 +8,9 @@
 	services.fstrim.enable = true;
 
 	environment.systemPackages = with pkgs; [
+		transmission-gtk
 		keepassxc
+        ntfs3g
 		gimp
 	];
 }
