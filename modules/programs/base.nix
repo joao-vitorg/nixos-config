@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 	environment.systemPackages = with pkgs; [
-		firefox
+    firefox
     tdesktop
     qalculate-gtk
     tealdeer
