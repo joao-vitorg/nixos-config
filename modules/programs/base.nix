@@ -1,9 +1,7 @@
 { pkgs, ... }: {
-	environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     firefox
     tdesktop
-    qalculate-gtk
-    tealdeer
     openssl
     gcc
     htop

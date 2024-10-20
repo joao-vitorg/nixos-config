@@ -1,6 +1,6 @@
 ## Atualizar o repositório
 ```shell
-nix-check
+nix-update
 ```
 
 ## Limpar o sistema
@@ -8,7 +8,12 @@ nix-check
 nix-gc
 ```
 
-## Compilar o sistema
+## Testar o sistema
 ```shell
-nix-boot
+nix-test
+```
+
+## Atualizar e compilar o sistema
+```shell
+nix-upgrade
 ```

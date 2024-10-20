@@ -1,16 +1,21 @@
 { pkgs, lib, ... }: {
-	imports = [
-		./hardware-configuration.nix
-		../../modules/services/printer.nix
-		../../modules/development
-	];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/development
+    ../../modules/programs/steam.nix
+  ];
 
-	services.fstrim.enable = true;
+  services = {
+    xserver.videoDrivers = ["amdgpu"];
+    fstrim.enable = true;
+  };
 
-	environment.systemPackages = with pkgs; [
-		transmission-gtk
-		keepassxc
-        ntfs3g
-		gimp
-	];
+  environment.systemPackages = with pkgs; [
+    transmission_4-gtk
+    qalculate-gtk
+    keepassxc
+    chromium
+    ntfs3g
+    gimp
+  ];
 }

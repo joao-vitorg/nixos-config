@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    nodePackages.pnpm
-    nodejs-slim
+    chromedriver
+    python3
+    uv
   ];
 }
