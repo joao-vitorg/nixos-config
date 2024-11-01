@@ -37,10 +37,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    tmp = {
-      cleanOnBoot = true;
-      tmpfsSize = "5GB";
-    };
+    tmp.cleanOnBoot = true;
     loader = {
       efi = {
         canTouchEfiVariables = true;
