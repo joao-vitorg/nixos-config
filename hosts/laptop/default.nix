@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ../../modules/development
     ../../modules/programs/steam.nix
+    ../../modules/services/kanata.nix
   ];
 
   services = {
