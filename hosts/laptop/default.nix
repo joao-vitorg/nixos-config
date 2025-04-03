@@ -2,21 +2,28 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/development
-    ../../modules/programs/steam.nix
+    ../../modules/programs/lutris.nix
     ../../modules/services/kanata.nix
   ];
 
   services = {
-    xserver.videoDrivers = ["amdgpu"];
+    xserver.videoDrivers = [ "amdgpu" ];
     fstrim.enable = true;
   };
+
+  boot = {
+    initrd.kernelModules = [ "amdgpu" ];
+    kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
+  };
+
+  nixpkgs.config.rocmSupport = true;
 
   environment.systemPackages = with pkgs; [
     transmission_4-gtk
     qalculate-gtk
     keepassxc
     chromium
-    ntfs3g
-    gimp
+    jackett
+    vlc
   ];
 }

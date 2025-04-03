@@ -1,6 +1,6 @@
 { pkgs, ... }: {
-  openssh = {
-    enable = false;
+  services.openssh = {
+    enable = true;
     allowSFTP = true;
     settings.PermitRootLogin = "yes";
   };

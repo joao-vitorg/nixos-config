@@ -27,8 +27,11 @@
 
   hardware = {
     enableRedistributableFirmware = true;
-    pulseaudio.enable = false;
     bluetooth.enable = false;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
 
   environment = {
@@ -37,6 +40,7 @@
       gnome-tweaks
     ];
     gnome.excludePackages = (with pkgs; [
+      gnome-system-monitor
       gnome-backgrounds
       gnome-font-viewer
       gnome-calculator

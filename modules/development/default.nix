@@ -7,6 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     jetbrains.idea-ultimate
+    nixpkgs-fmt
     git
   ];
 }

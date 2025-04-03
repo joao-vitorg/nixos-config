@@ -16,31 +16,28 @@
   };
 
   dconf.settings = {
-#    "org/gnome/desktop/interface" = {
-#      color-scheme = "prefer-dark";
-#      icon-theme = "Papirus-Dark";
-#      cursor-theme = "Dracula-cursors";
-#    };
+    "org/freedesktop/tracker/miner/files" = {
+      index-recursive-directories = [ "&DESKTOP" "&DOCUMENTS" "&MUSIC" "&PICTURES" "&VIDEOS" "/media" ];
+      index-single-directories = [ "&DOWNLOAD" "$HOME" ];
+    };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+    "org/gnome/mutter" = {
+      dynamic-workspaces = true;
+      edge-tiling = true;
+    };
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+    };
     "org/gnome/shell" = {
-#      disable-user-extensions = false;
-#      favorite-apps = [
-#        "firefox.desktop"
-#        "idea-ultimate.desktop"
-#        "org.gnome.Nautilus.desktop"
-#        "org.gnome.Console.desktop"
-#        "qalculate-gtk.desktop"
-#        "org.keepassxc.KeePassXC.desktop"
-#        "org.telegram.desktop.desktop"
-#      ];
-      enabled-extensions = [
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "clipboard-indicator@tudmotu.com"
-      ];
+      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "clipboard-indicator@tudmotu.com" ];
     };
   };
 
   home.packages = with pkgs.gnomeExtensions; [
     clipboard-indicator
+    just-perfection
     appindicator
   ];
 }

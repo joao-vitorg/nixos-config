@@ -9,7 +9,6 @@
   programs.fish.enable = true;
 
   security = {
-    pam.services.gnomekey.enableGnomeKeyring = true;
     rtkit.enable = true;
     doas = {
       enable = true;
@@ -37,18 +36,8 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    loader.grub.device = "/dev/sda";
     tmp.cleanOnBoot = true;
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
-      grub = {
-        useOSProber = true;
-        efiSupport = true;
-        device = "nodev";
-      };
-    };
   };
 
   time.timeZone = "America/Sao_Paulo";
