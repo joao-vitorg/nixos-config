@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+  imports = [
+    ./nh.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     firefox
     tdesktop

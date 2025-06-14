@@ -10,12 +10,12 @@
 
     functions = {
       nix-hardware = "doas nixos-generate-config \n cp /etc/nixos/hardware-configuration.nix /media/codes/nixos-config/hosts/laptop";
-      nix-update = "nix flake update --allow-dirty \n doas nix-channel --update";
-      nix-gc = "doas nix-env --delete-generations old --profile /nix/var/nix/profiles/system \n doas nix-collect-garbage -d \n doas nix-store --optimize";
-      nix-test = "nixos-rebuild test --flake .#laptop --use-remote-sudo";
-      nix-boot = "nixos-rebuild boot --flake .#laptop --use-remote-sudo";
+      nix-update = "doas nix-channel --update";
+      nix-gc = "doas nh clean all \n doas nix-store --optimize";
+      nix-test = "nh os test -H laptop -u";
+      nix-boot = "nh os boot -H laptop -u";
       nix-copilot = "ln -fs /run/current-system/sw/bin/copilot-agent ~/.local/share/JetBrains/IntelliJIdea2023.2/github-copilot-intellij/copilot-agent/bin/copilot-agent-linux";
-      nix-upgrade = "nix-update \n nix-boot \n nix-gc";
+      nix-upgrade = "nix-update \n nix-boot";
     };
 
     plugins = with pkgs.fishPlugins; [

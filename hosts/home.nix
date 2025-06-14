@@ -9,6 +9,7 @@
   home = {
     username = "dallas";
     homeDirectory = "/home/dallas";
-    stateVersion = "23.11";
+    enableNixpkgsReleaseCheck = false;
+    stateVersion = "25.05";
   };
 }

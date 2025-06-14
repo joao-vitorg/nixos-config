@@ -2,12 +2,16 @@
   services = {
     avahi.enable = false;
     hardware.bolt.enable = false;
+    desktopManager.gnome.enable = true;
     udev.packages = with pkgs; [
       gnome-settings-daemon
     ];
-    displayManager.autoLogin = {
-      enable = true;
-      user = "dallas";
+    displayManager = {
+      gdm.enable = true;
+      autoLogin = {
+        enable = true;
+        user = "dallas";
+      };
     };
     gnome = {
       gnome-browser-connector.enable = false;
@@ -20,8 +24,6 @@
     xserver = {
       enable = true;
       xkb.layout = "br";
-      desktopManager.gnome.enable = true;
-      displayManager.gdm.enable = true;
     };
   };
 

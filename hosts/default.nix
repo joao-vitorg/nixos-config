@@ -8,14 +8,16 @@ let
     modules = [
       (./. + "/${host}")
       ./configuration.nix
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.dallas.imports = [
-          (import ./home.nix)
-          (import (./. + "/${host}/home.nix"))
-        ];
+      home-manager.nixosModules.home-manager {
+        home-manager = {
+          extraSpecialArgs = { inherit inputs; };
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.dallas.imports = [
+            (import ./home.nix)
+            (import (./. + "/${host}/home.nix"))
+          ];
+        };
       }
     ];
   };

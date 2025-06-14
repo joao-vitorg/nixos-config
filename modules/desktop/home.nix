@@ -30,13 +30,24 @@
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
     };
+    "org/gnome/shell/extensions/just-perfection" = {
+        hide-power-button = true;
+        hide-switch-user-button = true;
+        show-tooltip = true;
+    };
     "org/gnome/shell" = {
-      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "clipboard-indicator@tudmotu.com" ];
+      enabled-extensions = [
+        "just-perfection-desktop@just-perfection"
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "clipboard-indicator@tudmotu.com"
+        "solaar-extension@sidevesh"
+      ];
     };
   };
 
   home.packages = with pkgs.gnomeExtensions; [
     clipboard-indicator
+    solaar-extension
     just-perfection
     appindicator
   ];

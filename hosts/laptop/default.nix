@@ -3,7 +3,8 @@
     ./hardware-configuration.nix
     ../../modules/development
     ../../modules/programs/lutris.nix
-    ../../modules/services/kanata.nix
+    ../../modules/programs/vial.nix
+    ../../modules/services/solaar.nix
   ];
 
   services = {
