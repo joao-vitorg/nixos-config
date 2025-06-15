@@ -2,6 +2,7 @@
   imports = [
     ../modules/desktop/home.nix
     ../modules/programs
+    ../dotfiles
   ];
 
   programs.home-manager.enable = true;

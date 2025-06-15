@@ -15,5 +15,5 @@ nix-test
 
 ## Atualizar e compilar o sistema
 ```shell
-nix-rebuild
+nix-upgrade
 ```

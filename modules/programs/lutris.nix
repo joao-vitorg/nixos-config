@@ -1,18 +1,7 @@
 { pkgs, ... }: {
   programs = {
+    gamescope.enable = true;
     gamemode.enable = true;
-  };
-
-  users.extraGroups.vboxusers.members = [ "dallas" ];
-  virtualisation.virtualbox = {
-    host = {
-      enable = false;
-      enableExtensionPack = true;
-    };
-    guest = {
-      enable = false;
-      dragAndDrop = true;
-    };
   };
 
   systemd.services.lactd = {
@@ -30,8 +19,11 @@
     };
   };
 
+  environment.etc."lact/config.yaml".source = "/media/codes/nixos-config/dotfiles2/lact/config.yaml";
+
   environment.systemPackages = with pkgs; [
-    wineWowPackages.waylandFull
+    wineWowPackages.stable
+    corectrl
     winetricks
     protonup
     mangohud

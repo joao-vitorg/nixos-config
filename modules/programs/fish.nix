@@ -12,10 +12,10 @@
       nix-hardware = "doas nixos-generate-config \n cp /etc/nixos/hardware-configuration.nix /media/codes/nixos-config/hosts/laptop";
       nix-update = "doas nix-channel --update";
       nix-gc = "doas nh clean all \n doas nix-store --optimize";
-      nix-test = "nh os test -H laptop -u";
-      nix-boot = "nh os boot -H laptop -u";
+      nix-test = "nh os test -H laptop -u -- --impure";
+      nix-boot = "nh os boot -H laptop -u -- --impure";
       nix-copilot = "ln -fs /run/current-system/sw/bin/copilot-agent ~/.local/share/JetBrains/IntelliJIdea2023.2/github-copilot-intellij/copilot-agent/bin/copilot-agent-linux";
-      nix-upgrade = "nix-update \n nix-boot";
+      nix-upgrade = "nix-update \n nix-boot \n nix-gc";
     };
 
     plugins = with pkgs.fishPlugins; [

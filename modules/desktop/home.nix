@@ -16,10 +16,6 @@
   };
 
   dconf.settings = {
-    "org/freedesktop/tracker/miner/files" = {
-      index-recursive-directories = [ "&DESKTOP" "&DOCUMENTS" "&MUSIC" "&PICTURES" "&VIDEOS" "/media" ];
-      index-single-directories = [ "&DOWNLOAD" "$HOME" ];
-    };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
