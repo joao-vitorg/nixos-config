@@ -10,11 +10,23 @@
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations = (
-      import ./hosts {
-        inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager;
-      }
-    );
+    nixosConfigurations.dallas = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hardware-configuration.nix
+        ./modules
+        home-manager.nixosModules.home-manager {
+          home-manager = {
+            extraSpecialArgs = { inherit inputs; };
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.dallas.imports = [
+              (import ./home)
+            ];
+          };
+        }
+      ];
+    };
   };
 }

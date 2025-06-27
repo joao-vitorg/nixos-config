@@ -1,11 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./printer.nix
+    ./solaar.nix
+    ./ssh.nix
   ];
-
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-  };
 }

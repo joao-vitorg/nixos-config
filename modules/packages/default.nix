@@ -1,9 +1,18 @@
 { pkgs, ... }: {
   imports = [
+    ./lutris.nix
     ./nh.nix
+    ./vial.nix
   ];
 
   environment.systemPackages = with pkgs; [
+    transmission_4-gtk
+    qalculate-gtk
+    keepassxc
+    chromium
+    jackett
+    vlc
+
     tdesktop
     resources
     gimp

@@ -1,8 +1,7 @@
 { config, lib, pkgs, ... }: {
   imports = [
-    ../modules/desktop/home.nix
-    ../modules/programs
-    ../dotfiles
+    ./configs
+    ./packages
   ];
 
   programs.home-manager.enable = true;

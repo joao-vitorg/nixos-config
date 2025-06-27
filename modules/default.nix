@@ -1,12 +1,14 @@
 { config, lib, pkgs, inputs, ... }: {
   imports = [
-    ../modules/desktop
-    ../modules/services
-    ../modules/programs/base.nix
+    ./core
+    ./development
+    ./packages
+    ./services
   ];
 
-  nixpkgs.config.allowUnfree = true;
   programs.fish.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
 
   security = {
     rtkit.enable = true;
@@ -35,10 +37,17 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader.grub.device = "/dev/sda";
     tmp.cleanOnBoot = true;
+    loader = {
+      systemd-boot.enable = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
   };
+
+  services.fstrim.enable = true;
 
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "pt_BR.UTF-8";
