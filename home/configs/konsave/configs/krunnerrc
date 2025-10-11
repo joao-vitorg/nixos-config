@@ -1,0 +1,12 @@
+[General]
+historyBehavior=ImmediateCompletion
+
+[Plugins]
+krunner_dictionaryEnabled=false
+krunner_spellcheckEnabled=false
+
+[Plugins][Favorites]
+plugins=krunner_sessions,krunner_powerdevil,krunner_services,krunner_systemsettings
+
+[Runners][krunner_spellcheck]
+requireTriggerWord=false
