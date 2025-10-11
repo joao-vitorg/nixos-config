@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./printer.nix
-    ./solaar.nix
-    ./ssh.nix
+#    ./solaar.nix
+#    ./ssh.nix
   ];
 }

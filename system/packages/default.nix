@@ -1,8 +1,7 @@
 { pkgs, ... }: {
   imports = [
-    ./lutris.nix
-    ./nh.nix
-    ./vial.nix
+    ./games
+#    ./vial.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -11,7 +10,6 @@
     keepassxc
     chromium
     jackett
-    vlc
 
     tdesktop
     resources
