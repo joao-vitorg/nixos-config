@@ -8,10 +8,10 @@
     transmission_4-gtk
     qalculate-gtk
     keepassxc
-    chromium
+    google-chrome
     jackett
 
-    tdesktop
+    telegram-desktop
     resources
     gimp
     openssl

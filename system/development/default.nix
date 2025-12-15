@@ -2,6 +2,7 @@
   imports = [
     ./docker.nix
     ./node.nix
+    ./sankhya.nix
   ];
 
   environment.systemPackages = with pkgs; [

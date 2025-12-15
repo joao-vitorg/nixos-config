@@ -1,7 +1,9 @@
 { pkgs, ... }: {
   programs.git = {
     enable = true;
-    userName = "joao-vitorg";
-    userEmail = "101678877+joao-vitorg@users.noreply.github.com";
+    settings.user = {
+      name = "joao-vitorg";
+      email = "101678877+joao-vitorg@users.noreply.github.com";
+    };
   };
 }
